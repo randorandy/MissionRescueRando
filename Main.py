@@ -155,13 +155,11 @@ def write_rom(game: Game, romWriter: Optional[RomWriter] = None) -> str:
     for loc in game.all_locations.values():
         write_location(romWriter, loc)
 
-    # Awakening Cliffhanger Redux patch
-    #romWriter.writeBytes(0x79767, b"\x40")
-    #romWriter.writeBytes(0x7e65a, b"\xea\xea\xea\xea\xea")
-    # Attic Patch -checks for event ("12") that zebes is awake ("00")
-    #romWriter.writeBytes(0x7ca5d, b"\x12\xe6\x00")
-    # WS big room Patch -make it not wake up
-    #romWriter.writeBytes(0x7cb04, b"\x08")
+    # Neen's QOL Activators patch
+    romWriter.writeBytes(0x27253, bytes.fromhex("5DF257F2C1865EF2B48660AE271CBD871C4ACDC40DD017BDC71D29FF0022FA8180A9190022CB9080AE271C20BC8660"))
+    
+    # Bomb Torizo remove gray door outside
+    romWriter.writeBytes(0x306bd9, b"\x46")
     
     # Morph Ball Fix
     romWriter.writeBytes(0x268ce, b"\x04")

@@ -13,7 +13,6 @@ def door_factory() -> dict[AreaDoor, Union[Item, LogicShortcut]]:
 
 @dataclass
 class GameOptions:
-    visibility: bool = True
     """ protected because objective rando auto-enables this """
 
 @dataclass

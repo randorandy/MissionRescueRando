@@ -88,9 +88,9 @@ function setup_roll_button() {
     const roll_button = document.getElementById("roll-button");
     roll_button.addEventListener("click", async () => {
         //const visibility_box = document.getElementById("visibility");
-        //const params = {
+        const params = {}
         //    "visibility": visibility_box.checked,
-        //}
+        
         roll_button.disabled = true;
         const status_div = document.getElementById("status");
         status_div.innerText = "rolling...";

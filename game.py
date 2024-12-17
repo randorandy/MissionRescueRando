@@ -21,7 +21,6 @@ class Game:
     """ a composition of all the components that make up the generated seed """
     logic: Type[LogicInterface]
     all_locations: dict[str, Location]
-    visibility: bool
     connections: list[tuple[AreaDoor, AreaDoor]]
     seed: int
     item_placement_spoiler: str = ""

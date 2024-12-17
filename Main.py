@@ -74,13 +74,9 @@ def generate() -> Game:
     randomizeAttempts = 0
     game = Game(Expert,
                 csvdict,
-                areaA == "A",
                 VanillaAreas(),
                 seeeed)
     while not seedComplete :
-        if game.area_rando:  # area rando
-            game.connections = areaRando.RandomizeAreas()
-            # print(Connections) #test
         randomizeAttempts += 1
         if randomizeAttempts > 1000:
             print("Giving up after 1000 attempts. Help?")

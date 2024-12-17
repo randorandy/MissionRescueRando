@@ -52,8 +52,7 @@ def roll2(params_str: str) -> None:
     params: WebParams = json.loads(params_str)
 
     # romWriter = RomWriter.fromBlankIps()  # TODO
-    options = GameOptions(
-        bool(params["visibility"]))
+    options = GameOptions()
     print(options)
 
 

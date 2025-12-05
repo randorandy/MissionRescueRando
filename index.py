@@ -54,7 +54,7 @@ def roll2(params_str: str) -> None:
 
     # romWriter = RomWriter.fromBlankIps()  # TODO
     options = GameOptions(False)
-    # print(options)
+    print(options)
 
 
 def roll3() -> bool:

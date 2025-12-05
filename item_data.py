@@ -24,77 +24,77 @@ class Items:
              b"\x77\xef",
              b"\x77\xef",
              b"\x77\xef",
-             b"\x00")
+             b"\x1a\x00")
     Springball = ("Springball",
                  b"\x57\xef",
                  b"\x57\xef",
                  b"\x57\xef",
-                 b"\x00")
+                 b"\x96\x00")
     Bombs = ("Bombs",
              b"\x3b\xef",
              b"\x3b\xef",
              b"\x3b\xef",
-             b"\x00")
+             b"\x07\x00")
     HiJump = ("HiJump",
               b"\x47\xef",
               b"\x47\xef",
               b"\x47\xef",
-              b"\x00")
+              b"\x35\x00")
     Varia = ("Varia Suit",
              b"\x5b\xef",
              b"\x5b\xef",
              b"\x5b\xef",
-             b"\x00")
+             b"\x30\x00")
     GravitySuit = ("Gravity Suit",
                    b"\x5f\xef",
                    b"\x5f\xef",
                    b"\x5f\xef",
-                   b"\x00")
+                   b"\x87\x00")
     Wave = ("Wave Beam",
             b"\xa3\xef",
             b"\xa3\xef",
             b"\xa3\xef",
-            b"\x00")
+            b"\x44\x00")
     SpeedBooster = ("Speed Booster",
                     b"\x4b\xef",
                     b"\x4b\xef",
                     b"\x4b\xef",
-                    b"\x00")
+                    b"\x10\x00")
     Spazer = ("Spazer",
               b"\x53\xef",
               b"\x53\xef",
               b"\x53\xef",
-              b"\x00")
+              b"\x2a\x00")
     Ice = ("Ice Beam",
            b"\x43\xef",
            b"\x43\xef",
            b"\x43\xef",
-           b"\x00")
+           b"\x32\x00")
     Grapple = ("Grapple Beam",
                b"\x17\xef",
                b"\x17\xef",
                b"\x17\xef",
-               b"\x00")
+               b"\x3c\x00")
     Plasma = ("Plasma Beam",
               b"\x67\xef",
               b"\x67\xef",
               b"\x67\xef",
-              b"\x00")
+              b"\x8f\x00")
     Screw = ("Screw Attack",
              b"\x73\xef",
              b"\x73\xef",
              b"\x73\xef",
-             b"\x00")
+             b"\x4f\x00")
     Charge = ("Charge Beam",
               b"\x3f\xef",
               b"\x3f\xef",
               b"\x3f\xef",
-              b"\x00")
+              b"\x17\x00")
     SpaceJump = ("Space Jump",
                  b"\x6f\xef",
                  b"\x6f\xef",
                  b"\x6f\xef",
-                 b"\x00")
+                 b"\x9a\x00")
     Energy = ("Energy Tank",
               b"\xd7\xee",
               b"\x2b\xef",
@@ -109,12 +109,12 @@ class Items:
             b"\x63\xef",
             b"\x63\xef",
             b"\x63\xef",
-            b"\x00")
+            b"\x26\x00")
     Walljump = ("Walljump Boots",
               b"\x00\xf8",
               b"\x00\xf8",
               b"\x00\xf8",
-              b"\x00")
+              b"\x1d\x00")
 
 items_unpackable: Iterable[Item] = (
     Items.Missile, Items.Super, Items.PowerBomb, Items.Morph, Items.Springball, Items.Bombs,

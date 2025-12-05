@@ -85,11 +85,14 @@ class RomWriter:
             raise ValueError(f"invalid rom writer type: {self.romWriterType}")
 
     def writeItem(self, address: int, plmid: bytes, ammoAmount: bytes = b"\x00") -> None:
-        if len(plmid) != 2 or len(ammoAmount) != 1:
+        if len(plmid) != 2:
             raise Exception(f'plmid length ({len(plmid)}) must be 2 and ammoAmount '
                             f'length ({len(ammoAmount)}) must be 1')
+        if address == 0 or address == '0' :
+            print("Address is 0 so no item was added here")
+            return
         self.writeBytes(address, plmid)
-        self.writeBytes(address+5, ammoAmount)
+        #self.writeBytes(address+5, ammoAmount)
 
     def finalizeRom(self, filename: Optional[str] = None) -> None:
         if self.romWriterType == RomWriterType.file:

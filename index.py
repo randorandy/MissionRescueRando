@@ -46,22 +46,22 @@ def roll1() -> bool:
 
 
 def roll2(params_str: str) -> None:
-    # global options
+    global options
     print("roll2 initiated")
     # what if roll2 just does nothing??
-    # print(params_str)
-    # params: WebParams = json.loads(params_str)
+    print(params_str)
+    params: WebParams = json.loads(params_str)
 
     # romWriter = RomWriter.fromBlankIps()  # TODO
-    # options = GameOptions()
+    options = GameOptions(False)
     # print(options)
 
 
 def roll3() -> bool:
     global game
     print("roll3 initiated")
-    # assert options
-    game = generate()
+    assert options
+    game = generate(options)
     # return not (game.hint_data is None) Bux
     return all(not (loc["item"] is None) for loc in game.all_locations.values())
 

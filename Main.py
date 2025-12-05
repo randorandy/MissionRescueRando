@@ -38,7 +38,7 @@ def write_location(romWriter: RomWriter, location: Location) -> None:
     for address in location['locids']:
         romWriter.writeItem(address, plmid, item[4])
     for address in location['alternateroomlocids']:
-        if location['alternateroomdifferenthiddenness'] == "":
+        if location['alternateroomdifferenthiddenness'] == "0":
             # most of the alt rooms go here, having the same item hiddenness
             # as the corresponding "pre-item-move" item had
             plmid_altroom = plmid
@@ -74,9 +74,13 @@ def generate() -> Game:
     randomizeAttempts = 0
     game = Game(Expert,
                 csvdict,
+                areaA == "A",
                 VanillaAreas(),
                 seeeed)
     while not seedComplete :
+        if game.area_rando:  # area rando
+            game.connections = areaRando.RandomizeAreas()
+            # print(Connections) #test
         randomizeAttempts += 1
         if randomizeAttempts > 1000:
             print("Giving up after 1000 attempts. Help?")
@@ -156,6 +160,19 @@ def write_rom(game: Game, romWriter: Optional[RomWriter] = None) -> str:
     
     # Bomb Torizo remove gray door outside
     romWriter.writeBytes(0x306bd9, b"\x46")
+
+    # Don't flood landing site on power bomb pickup
+    romWriter.writeBytes(0x7cb5a, b"\x7c")
+
+    # Create early game activator to open grapple doors *could be better
+    romWriter.writeBytes(0x306e84, bytes.fromhex("53F204834D00"))
+
+    #activator at ship to trigger 1f escape... kinda failed but for testing
+    #romWriter.writeBytes(0x300a00, bytes.fromhex("53F245411F00"))
+
+    # Skip the escape patch (test)
+    #romWriter.writeBytes(0x1c5dc, bytes.fromhex("43CB00058E360803C0000000"))
+    romWriter.writeBytes(0x1c5dc, bytes.fromhex("43CB00018E060800C0000000"))
     
     # Morph Ball Fix
     romWriter.writeBytes(0x268ce, b"\x04")
